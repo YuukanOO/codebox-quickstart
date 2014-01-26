@@ -12,7 +12,7 @@ var view        = {};
 
 program
     .version('0.1.0')
-    .usage('[options] <name>')
+    .usage('[options] <addon_path>')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
 
@@ -42,7 +42,7 @@ console.info("Building %s...", addon_path);
 // Creates the directory
 console.info("Deleting/Creating directory...");
 utils.deleteDirSync(addon_path);
-fs.mkdirSync(addon_path);
+utils.createFullPathSync(addon_path);
 
 // Creates templates
 var templates = utils.getFilesSync("templates");
