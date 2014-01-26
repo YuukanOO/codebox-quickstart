@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
 var program     = require('commander');
-var mustache    = require('mustache');
 var path        = require('path');
-var fs          = require('fs');
 
 var pkg         = require('../package.json');
-var utils       = require('../lib/utils');
+var unit        = require('../lib/unit');
 
 var addon_path  = null;
 var view        = {};
@@ -41,32 +39,10 @@ view.author = {
 console.info("Building %s...", addon_path);
 
 // Creates the directory
-console.info("Deleting/Creating directory...");
-utils.deleteDirSync(addon_path);
-utils.createFullPathSync(addon_path);
+unit.prepareWorkingDirectory(addon_path);
 
 // Creates templates
-var templates = utils.getFilesSync("templates");
-var reg = new RegExp("^templates\/|.mustache$", "g");
-var current_path = null;
-var dest_path = null;
-var template_content = null;
-var content = null;
-
-for(var i = 0; i < templates.length; i++) {
-
-    current_path = templates[i];
-    dest_path = path.join(addon_path, current_path.replace(reg, ""));
-    
-    console.info("Generating %s...", dest_path);
-    
-    utils.createFullPathSync(dest_path);
-
-    template_content = fs.readFileSync(current_path, "utf8");
-    content = mustache.render(template_content, view);
-    
-    fs.writeFileSync(dest_path, content);
-
-}
+var templates = unit.gatherTemplates();
+unit.renderTemplates(templates, view);
 
 console.info("Done!");
