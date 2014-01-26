@@ -16,7 +16,7 @@ program
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
 
-addon_path = program.args.length > 0 ? program.args[0] : null;
+addon_path = program.args.length > 0 ? program.args[0].replace(/\/$/, '') : null;
 
 // If no name has been provided (and no interactive mode), exit now
 if(addon_path === null/* && !program.interactive*/) {
