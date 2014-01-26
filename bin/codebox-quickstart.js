@@ -5,13 +5,14 @@ var mustache    = require('mustache');
 var path        = require('path');
 var fs          = require('fs');
 
+var pkg         = require('../package.json');
 var utils       = require('../lib/utils');
 
 var addon_path  = null;
 var view        = {};
 
 program
-    .version('0.1.0')
+    .version(pkg.version)
     .usage('[options] <addon_path>')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
