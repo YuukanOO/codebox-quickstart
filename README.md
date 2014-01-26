@@ -6,9 +6,9 @@ Command line tool to generate addon skeleton for [codebox](https://github.com/Fr
 Installation
 --------------------
 
-Since this is a Work In Progress (for now), you'll have to git clone this repository. Go to the directory and `npm install`.
+Use `npm` to install it: `npm install codebox-quickstart -g`.
 
 Usage
 --------------------
 
-In the codebox-quickstart directory, `node bin/codebox-quickstart.js <where_to_store_your_addon>`.
+See `codebox-quickstart -h`.
