@@ -1,0 +1,38 @@
+/**
+ * This function is mandatory and is called by codebox to register the
+ * node part of your addon.
+ * 
+ * If you have added some module in the `consumes` in the package.json,
+ * they will be available via the imports argument.
+ */
+function setup(options, imports, register) {
+    
+    /**
+     * Example: if you have `consumes: ['workspace']` in your package.json,
+     * it can be retrieved via `imports.workspace` and so you can do something
+     * like this:
+     * 
+     * var workspace = imports.workspace;
+     * console.log(workspace.root); // This will print the root of the current workspace
+     */
+    
+    /**
+     * The register callback must be called in order to register your addon.
+     * If you want to provide functionnalities to other addons, you'll have to
+     * do it via the second parameter of this method.
+     * 
+     * Example: If you want to provide an object called `myService`, you should declare it
+     * in the package.json via `provides : ['myService']` and register it like so:
+     * 
+     * register(null, {
+     *      'myService': {
+     *          'hello': function() { console.log("Hello should appears in the server log"); }
+     *      }
+     * });
+     * 
+     * With this setup, other addons can consumes the `myService` and call `myService.hello()`.
+     */
+    register(null, {});
+}
+
+module.exports = setup;

@@ -1,0 +1,24 @@
+{
+    "author": "Julien Leicher",
+    "name": "codebox-quickstart",
+    "description": "Command line tool to generate addon skeleton.",
+    "version": "0.1.0",
+    "keywords": [
+        "codebox", "addon", "cloud"
+    ],
+    "homepage": "https://github.com/YuukanOO/codebox-quickstart",
+    "dependencies": {
+        "commander": "2.1.0",
+        "mustache": "0.8.1"
+    },
+    "bin": {
+        "codebox-quickstart": "bin/codebox-quickstart.js"
+    },
+    "contributors": [
+        {
+            "name": "Julien Leicher",
+            "email": "jleicher@gmail.com",
+            "url": "http://julien.leicher.me"
+        }
+    ]
+}

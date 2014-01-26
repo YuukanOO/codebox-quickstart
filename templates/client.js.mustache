@@ -1,0 +1,49 @@
+/**
+ * Define your own client side addon. If you have some internal dependencies,
+ * you must define them here like so:
+ * 
+ * define(['my_utils'], function(MyUtils)) {
+ * 
+ *      // Use it
+ *      MyUtils.someMethod();
+ * 
+ * });
+ */
+define([], function() {
+    
+    /**
+     * You can include what you want here using the
+     * `codebox.require` method.
+     * 
+     * Here we are requiring 2 module included in codebox,
+     * the first is the menu which lets us registering our
+     * custom menu and the second will lets us open dialogs.
+     */
+    var menu    = codebox.require("core/commands/menu");
+    var dialogs = codebox.require("utils/dialogs");
+    
+    /**
+     * Register our menu, they are many options available,
+     * see here: https://github.com/FriendCode/codebox/blob/master/client/models/command.js#L19
+     * 
+     * You can then chain methods to obtain your desired layout.
+     */
+    menu.register("an_unique_identifier", {
+        "title": "My menu"
+    })
+    .menuSection([
+        {
+            "title": "Say something",
+            "offline": true,
+            "action": function() {
+                dialogs.alert("The title", "Should I say something?")
+            }
+        }
+    ])
+    .menuSection([
+        {
+            "title": "It does nothing"
+        }
+    ]);
+    
+});
