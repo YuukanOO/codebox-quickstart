@@ -10,10 +10,8 @@
         "email": "{{author.email}}",
         "url": "{{&author.url}}"
     },
+    {{#addon.server-side}}
     "main": "./node/main",
-    "dependencies": {
-        
-    },
     "plugin": {
         "provides": [
             
@@ -21,6 +19,10 @@
         "consumes": [
             
         ]
+    },
+    {{/addon.server-side}}
+    "dependencies": {
+        
     },
     "client": {
         "main": "client"

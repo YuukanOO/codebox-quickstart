@@ -12,6 +12,7 @@ var view        = {};
 program
     .version(pkg.version)
     .usage('[options] <addon_path>')
+    .option('-s, --serverside', 'Creates needed files for server side addon.')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
 
@@ -27,7 +28,8 @@ if(addon_path === null/* && !program.interactive*/) {
 view.addon = {
     'name': path.basename(addon_path),
     'version': "0.1.0",
-    'path': addon_path
+    'path': addon_path,
+    'server-side': program.serverside
 };
 
 view.author = {
@@ -42,7 +44,7 @@ console.info("Building %s...", addon_path);
 unit.prepareWorkingDirectory(addon_path);
 
 // Creates templates
-var templates = unit.gatherTemplates();
+var templates = unit.gatherTemplates(view);
 unit.renderTemplates(templates, view);
 
 console.info("Done!");
