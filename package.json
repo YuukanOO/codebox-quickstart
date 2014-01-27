@@ -12,8 +12,14 @@
         "mustache": "0.8.1",
         "mkdirp": "0.3.5"
     },
+    "devDependencies": {
+        "nodeunit": "0.8.4"
+    },
     "bin": {
         "codebox-quickstart": "bin/codebox-quickstart.js"
+    },
+    "scripts": {
+        "test": "nodeunit test"
     },
     "contributors": [
         {
