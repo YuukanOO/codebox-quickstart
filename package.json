@@ -2,7 +2,7 @@
     "author": "Julien Leicher",
     "name": "codebox-quickstart",
     "description": "Command line tool to generate addon skeleton.",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "keywords": [
         "codebox", "addon", "cloud"
     ],
