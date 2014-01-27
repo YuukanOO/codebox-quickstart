@@ -9,7 +9,8 @@
     "homepage": "https://github.com/YuukanOO/codebox-quickstart",
     "dependencies": {
         "commander": "2.1.0",
-        "mustache": "0.8.1"
+        "mustache": "0.8.1",
+        "mkdirp": "0.3.5"
     },
     "bin": {
         "codebox-quickstart": "bin/codebox-quickstart.js"
