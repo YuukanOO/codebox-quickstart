@@ -13,7 +13,7 @@ program
     .version(pkg.version)
     .usage('[options] <addon_path>')
     .option('-s, --serverside', 'Creates needed files for server side addon.')
-    .option('-e, --expert', 'Export mode, no comment will be added to the generated code.')
+    .option('-e, --expert', 'Expert mode, no comment will be added to the generated code.')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
 
