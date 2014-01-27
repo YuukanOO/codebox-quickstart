@@ -19,7 +19,7 @@
         "codebox-quickstart": "bin/codebox-quickstart.js"
     },
     "scripts": {
-        "test": "nodeunit test"
+        "test": "nodeunit tests"
     },
     "contributors": [
         {
