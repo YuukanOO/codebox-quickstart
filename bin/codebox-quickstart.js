@@ -13,6 +13,7 @@ program
     .version(pkg.version)
     .usage('[options] <addon_path>')
     .option('-s, --serverside', 'Creates needed files for server side addon.')
+    .option('-e, --expert', 'Export mode, no comment will be added to the generated code.')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
 
@@ -25,11 +26,15 @@ if(addon_path === null/* && !program.interactive*/) {
 }
 
 // Construct the view needed by mustache
+view.gen = {
+    'server-side': program.serverside,
+    'rookie-mode': !program.expert
+};
+
 view.addon = {
     'name': path.basename(addon_path),
     'version': "0.1.0",
-    'path': addon_path,
-    'server-side': program.serverside
+    'path': addon_path
 };
 
 view.author = {

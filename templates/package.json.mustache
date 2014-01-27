@@ -10,7 +10,7 @@
         "email": "{{author.email}}",
         "url": "{{&author.url}}"
     },
-    {{#addon.server-side}}
+    {{#gen.server-side}}
     "main": "./node/main",
     "plugin": {
         "provides": [
@@ -20,7 +20,7 @@
             
         ]
     },
-    {{/addon.server-side}}
+    {{/gen.server-side}}
     "dependencies": {
         
     },

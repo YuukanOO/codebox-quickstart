@@ -1,3 +1,4 @@
+{{#gen.rookie-mode}}
 /**
  * Define your own client side addon. If you have some internal dependencies,
  * you must define them here like so:
@@ -9,8 +10,10 @@
  * 
  * });
  */
+{{/gen.rookie-mode}}
 define([], function() {
     
+    {{#gen.rookie-mode}}
     /**
      * You can include what you want here using the
      * `codebox.require` method.
@@ -19,15 +22,18 @@ define([], function() {
      * the first is the menu which lets us registering our
      * custom menu and the second will lets us open dialogs.
      */
+    {{/gen.rookie-mode}}
     var menu    = codebox.require("core/commands/menu");
     var dialogs = codebox.require("utils/dialogs");
     
+    {{#gen.rookie-mode}}
     /**
      * Register our menu, they are many options available,
      * see here: https://github.com/FriendCode/codebox/blob/master/client/models/command.js#L19
      * 
      * You can then chain methods to obtain your desired layout.
      */
+    {{/gen.rookie-mode}}
     menu.register("an_unique_identifier", {
         "title": "My menu"
     })
@@ -36,7 +42,7 @@ define([], function() {
             "title": "Say something",
             "offline": true,
             "action": function() {
-                dialogs.alert("The title", "Should I say something?")
+                dialogs.alert("The title", "Should I say something?");
             }
         }
     ])

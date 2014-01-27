@@ -1,3 +1,4 @@
+{{#gen.rookie-mode}}
 /**
  * This function is mandatory and is called by codebox to register the
  * node part of your addon.
@@ -5,8 +6,10 @@
  * If you have added some module in the `consumes` in the package.json,
  * they will be available via the imports argument.
  */
+{{/gen.rookie-mode}}
 function setup(options, imports, register) {
     
+    {{#gen.rookie-mode}}
     /**
      * Example: if you have `consumes: ['workspace']` in your package.json,
      * it can be retrieved via `imports.workspace` and so you can do something
@@ -32,6 +35,7 @@ function setup(options, imports, register) {
      * 
      * With this setup, other addons can consumes the `myService` and call `myService.hello()`.
      */
+    {{/gen.rookie-mode}}
     register(null, {});
 }
 
