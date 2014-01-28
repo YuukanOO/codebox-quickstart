@@ -18,11 +18,13 @@ function setup(options, imports, register) {
      * var workspace = imports.workspace;
      * console.log(workspace.root); // This will print the root of the current workspace
      */
+    {{/gen.rookie-mode}}
 
     {{#addon.consumes}}
     var {{name}} = imports.{{name}};
     {{/addon.consumes}}
     
+    {{#gen.rookie-mode}}
     /**
      * The register callback must be called in order to register your addon.
      * If you want to provide functionnalities to other addons, you'll have to
