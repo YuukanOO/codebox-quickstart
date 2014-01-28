@@ -15,9 +15,11 @@
     "plugin": {
         "provides": [
             
-        ],
+        ]{{#gen.consumer}},{{/gen.consumer}}
         "consumes": [
-            
+           {{#addon.consumes}}
+           {{&str}}
+           {{/addon.consumes}}
         ]
     },
     {{/gen.server-side}}

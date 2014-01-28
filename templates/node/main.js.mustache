@@ -18,6 +18,10 @@ function setup(options, imports, register) {
      * var workspace = imports.workspace;
      * console.log(workspace.root); // This will print the root of the current workspace
      */
+
+    {{#addon.consumes}}
+    var {{name}} = imports.{{name}};
+    {{/addon.consumes}}
     
     /**
      * The register callback must be called in order to register your addon.
