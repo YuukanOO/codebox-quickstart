@@ -14,12 +14,14 @@
     "main": "./node/main",
     "plugin": {
         "provides": [
-            
+            {{#addon.provides}}
+            {{&str}}
+            {{/addon.provides}}
         ]{{#gen.consumer}},{{/gen.consumer}}
         "consumes": [
-           {{#addon.consumes}}
-           {{&str}}
-           {{/addon.consumes}}
+            {{#addon.consumes}}
+            {{&str}}
+            {{/addon.consumes}}
         ]
     },
     {{/gen.server-side}}

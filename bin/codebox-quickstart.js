@@ -28,7 +28,8 @@ program
     .version(pkg.version)
     .usage('[options] <addon_path>')
     .option('-s, --serverside', 'Creates needed files for server side addon')
-    .option('-c, --consumes <services>', 'Consumes comma separated list of service', list)
+    .option('-c, --consumes <services>', 'Consumes comma separated list of services', list)
+    .option('-p, --provides <services>', 'Provides comma separated list of services', list)
     .option('-e, --expert', 'Expert mode, no comment will be added to the generated code')
     //.option('-i, --interactive', 'Interactive mode, prompt the user.')
     .parse(process.argv);
@@ -43,11 +44,13 @@ if(addon_path === null/* && !program.interactive*/) {
 
 // Construct the view needed by mustache
 var consumer = typeof(program.consumes) !== 'undefined';
+var provider = typeof(program.provides) !== 'undefined';
 
 view.gen = {
-    'server-side': program.serverside || consumer,
+    'server-side': program.serverside || consumer || provider,
     'rookie-mode': !program.expert,
-    'consumer': consumer
+    'consumer': consumer,
+    'provider': provider
 };
 
 view.addon = {
@@ -55,7 +58,7 @@ view.addon = {
     'version': "0.1.0",
     'path': addon_path,
     'consumes': program.consumes,
-
+    'provides': program.provides
 };
 
 view.author = {

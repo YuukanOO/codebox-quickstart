@@ -11,4 +11,11 @@ Use `npm` to install it: `npm install codebox-quickstart -g`.
 Usage
 --------------------
 
-See `codebox-quickstart -h`.
+See below for common options or `codebox-quickstart -h`.
+
+Option | Description
+:---: | ---
+-s, --serverside | If this flags is set, it will generates basic code for codebox add-on with server side component
+-c, --consumes | Given a comma separated list of <services, ...>, it will generates code for an addon which consumes <services>
+-p, --provides | Given a comma separated list of <services, ...>, it will generates code for an addon which provides <services>
+-e, --expert | If this flag is set, the generator will remove all comments in the generated files

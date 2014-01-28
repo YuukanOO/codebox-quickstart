@@ -42,7 +42,16 @@ function setup(options, imports, register) {
      * With this setup, other addons can consumes the `myService` and call `myService.hello()`.
      */
     {{/gen.rookie-mode}}
-    register(null, {});
+    
+    {{#addon.provides}}
+    var {{name}} = {}; // Your object goes here
+    {{/addon.provides}}
+    
+    register(null, {
+        {{#addon.provides}}
+        '{{name}}': {{name}}
+        {{/addon.provides}}
+    });
 }
 
 module.exports = setup;
